@@ -37,8 +37,46 @@ def binomial_CLT(n, p, outer_n=100, inner_n=5, density=False):
     binom = stats.binom(n, p)
     simulate_CLT(binom, outer_n, inner_n, density=density)
 
+def binomial_CLT2(n, p, outer_n=100, density=False):
+    """ Traditional binomial central limit theorem where we evaluate the normality of p
+    """
+    bern = stats.binom(1, p)
+    dist = stats.binom(n, p)
+    mu = p
+    var = p * (1-p) / n
+    sig = np.sqrt(var)
+    x_bar = np.array([np.mean(bern.rvs(size=n)) for i in range(outer_n)])
+    normed = (x_bar - mu) / sig
+
+    f = plt.figure(figsize=(20, 10))
+    ax1 = f.add_subplot(121)
+    ax2 = f.add_subplot(122)
+    
+    try:
+        x1 = np.linspace(dist.ppf(0.001), dist.ppf(0.999), 100)
+        ax1.plot(x1, dist.pdf(x1))
+    except:
+        x1 = np.arange(np.floor(dist.ppf(0.001)), np.ceil(dist.ppf(0.999)), 1)
+        ax1.vlines(x1, 0, dist.pmf(x1))
+
+    n_bins = int(np.log10(outer_n)*10)
+
+    if not density:
+        ax2.hist(normed, bins=n_bins, normed=True, label='sample means')
+    else:
+        sns.kdeplot(normed, ax=ax2, shade=True, label='sample means')
+    # plt.hist(x_bar, bins=30, normed=True)
+    
+    x = np.linspace(stats.norm.ppf(0.001), stats.norm.ppf(0.999), 100)
+    ax2.plot(x, stats.norm.pdf(x), color='black', label='standard normal')
+
+    ax2.legend()
+    sns.despine(fig=f, trim=True)
+    plt.show()
+
 def binomial_interactive():
-    return interact_manual(binomial_CLT, n=(10, 100, 5), p=(0.0, 1.0, 0.1), outer_n=fixed(1000), inner_n=fixed(5), density=False)
+    return interact_manual(binomial_CLT2, n=(5, 100, 5), p=(0.0, 1.0, 0.1), outer_n=fixed(1000), density=False)
+    # return interact_manual(binomial_CLT, n=(10, 100, 5), p=(0.0, 1.0, 0.1), outer_n=fixed(1000), inner_n=fixed(5), density=False)
 
 def general_CLT(dist_str, outer_n=1000, inner_n=20, density=False):
     if dist_str == 'normal':
