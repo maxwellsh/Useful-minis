@@ -10,8 +10,8 @@ Additionally, there are two demos to explore the advantages and disadvantages of
 
 Running these demos requires python and a jupyter notebook. The easiest way to do this is to install the latest version of `anaconda`.
 
-1. Go [here](https://www.anaconda.com/download) to download the latest version of anaconda for you OS. BE SURE TO DOWNLOAD PYTHON 3.X
-2. Follow the instructions to install anaconda.
+1. Go [here](https://www.anaconda.com/download) to download the latest version of anaconda for your OS. BE SURE TO DOWNLOAD PYTHON 3.X
+2. Follow the instructions to install `anaconda`.
 3. Clone this repository to your computer.
 
 ## Running
