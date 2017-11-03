@@ -4,7 +4,7 @@
 
 This mini project simulates the Bayes table game as outline in [this](http://www.nature.com/nbt/journal/v22/n9/full/nbt0904-1177.html) nature article.
 
-In short: You and Bob are gambling in your local casino. Now this casino has a rather ideosyncratic gae of which you and Bob are big fans. The casion rolls a ball on a big table that neither of you can see. The casino then rolls another ball. If the ball ends up to the left of the original, you win the toss; if it ends up to the right of original Toss, Bob wins. The game continue as such until you or Bob wins a total of size toses. The only information you get is whether you or Bob won each toss.
+In short: You and Bob are gambling in your local casino. Now this casino has a rather ideosyncratic game of which you and Bob are big fans. The casion rolls a ball on a big table that neither of you can see. The casino then rolls another ball. If the ball ends up to the left of the original, you win the toss; if it ends up to the right of original toss, Bob wins. The game continues as such until you or Bob wins a total of six toses. The only information you get is whether you or Bob won each toss.
 
 Fancying yourself handy with numbers (and also disliking when Bob wins), you want to estimate where the original ball ended up and what Bob's expectation of winning is after any given toss.
 
