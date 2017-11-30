@@ -2,8 +2,8 @@ name: useful_minis
 channels: !!python/tuple
 - defaults
 dependencies:
--numpy
--scipy
--matplotlib
--seaborn
--ipywidgets
+- numpy
+- scipy
+- matplotlib
+- seaborn
+- ipywidgets
