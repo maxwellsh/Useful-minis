@@ -1,6 +1,6 @@
 name: useful_minis
-channels: !!python/tuple
-- defaults
+channels:
+- conda-forge
 dependencies:
 - numpy
 - scipy
